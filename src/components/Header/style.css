@@ -1,0 +1,12 @@
+.header-camp {
+  z-index: 999;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  min-height: 78px;
+  padding: 8px 0px;
+  position: sticky;
+  background: #ffffff;
+  box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+}/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,31 @@
+.weapon-card {
+    border-radius: 10px;
+    border: 1px solid rgba(13, 13, 13, 0.50);
+    background: #A6ABBD;
+    display: flex;
+    padding: 20px 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex: 1 0 0;
+}
+
+.weapon-card .title {
+    color: #151515;
+    font-family: VT323;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 1.8px;
+    text-align: center;
+}
+
+.weapon-card img {
+    height: 170px;
+}
+
+.is-selected {
+    filter: brightness(0.7);
+}

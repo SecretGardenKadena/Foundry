@@ -1,0 +1,19 @@
+.portal-wrap {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.font-label {
+    font-family: Luckiest Guy;
+}
+
+.portal-label {
+    color: #F7F7F7;
+    text-align: center;
+    font-family: Luckiest Guy;
+    font-size: 3rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 6.4px;
+}

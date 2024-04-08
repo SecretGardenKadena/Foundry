@@ -1,0 +1,71 @@
+:root {
+    --mild: #FDFF93;
+    --success: #00BD8A;
+    --primary: #33A0FF;
+    --danger: #F76E92;
+    --secondary: #833CB9;
+    --white: #ffffff;
+}
+
+.b-success {
+    background-color: var(--success);
+}
+
+.b-primary {
+    background-color: var(--primary);
+}
+
+.b-danger {
+    background-color: var(--danger);
+}
+
+.b-secondary {
+    background-color: var(--secondary);
+}
+
+.b-mild {
+    background-color: var(--mild);
+}
+
+.b-white {
+    background-color: var(--white);
+}
+
+.btn-lighten {
+    transition: filter 0.5s ease 0.1s;
+}
+
+.btn-lighten:hover {
+    filter: brightness(1.2);
+}
+
+.color-light {
+    color: #F7F7F7;
+}
+
+.color-dark {
+    color: #151515;
+}
+
+
+.is-pill {
+    border-radius: 999rem;
+}
+
+.is-full {
+    width: 100%;
+}
+
+.is-selected {
+    filter: brightness(0.7);
+}
+
+.y-p {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+}
+
+.x-p {
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+}

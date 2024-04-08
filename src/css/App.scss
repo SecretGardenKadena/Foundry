@@ -1,0 +1,840 @@
+@import "./Colors.scss";
+@import "./Props.scss";
+@import "./media.scss";
+@import "./global.scss";
+
+@import "../components/Header/style.scss";
+@import "../components/Footer/style.scss";
+@import "../components/Sidebar/style.scss";
+@import "../Pages/Home/style.scss";
+@import "../Pages/BuyNFT/buynft-style.scss";
+
+.font,
+body {
+  font-family: "VT323", monospace;
+}
+
+.luckiest-guy {
+  font-family: "Luckiest Guy", cursive;
+}
+
+html {
+  --cursor-color: #00bd8a; /* Adjust the RGB values as needed for your shade of green */
+}
+
+html.dark-mode {
+  --cursor-color: #00bd8a; /* Dark mode green color */
+}
+
+
+@mixin bgImage($radius: 50%) {
+  height: 100%;
+  width: 100%;
+  border-radius: $radius;
+  background-color: #e2e2e2;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+@mixin dropDownAnim($duration: 0.3s) {
+  animation-name: drop;
+  animation-duration: $duration;
+  transform-origin: top;
+}
+
+@keyframes drop {
+  0% {
+    transform: scaleY(0.5);
+    opacity: 0;
+  }
+}
+
+.wrapWidth {
+  width: 100%;
+  padding: 0px 3%;
+  // width: 1300px;
+  margin: 0 auto;
+  @include media("<=xlarge") {
+    width: 100%;
+    padding: 0px 3%;
+    // width: 1160px;
+    margin: 0 auto;
+  }
+  @include media("<=large") {
+    width: 100%;
+    padding: 0px 3%;
+  }
+  @include media("<=desktop") {
+    width: 100%;
+    padding: 0px 3%;
+  }
+  @include media("<=tablet") {
+    width: 100%;
+    padding: 0px 3%;
+  }
+  @include media(">=phone", "<=480px") {
+    padding: 0px 5%;
+  }
+}
+
+.App {
+  min-height: 100vh;
+  background: #151515;
+}
+
+//Drop Down
+.dropDown {
+  width: 100%;
+  .category {
+    width: 100%;
+    .cbox {
+      border: 1.5px solid #d7d7d7;
+      padding: 0 16px;
+      min-height: 42px;
+      border-radius: 5px;
+      box-sizing: border-box;
+      min-width: 180px;
+      width: 100%;
+      justify-content: space-between;
+      @include media(">=phone", "<=480px") {
+        min-width: 150px;
+      }
+      .icon-arrow {
+        svg {
+          path {
+            fill: $themeColor;
+          }
+        }
+      }
+      .slt {
+        overflow: hidden;
+        .ico {
+          cursor: pointer;
+          color: #000000d9;
+          height: 22px;
+          display: flex;
+          align-items: center;
+        }
+        .lbl {
+          color: #000;
+          padding: 0 10px;
+        }
+        .unit-name {
+          .unit-eng {
+            color: #000000;
+          }
+        }
+      }
+      .d-img {
+        margin: 2px 10px;
+        .img {
+          height: 25px;
+          width: 25px;
+          padding: 2.5px;
+          border-radius: 100%;
+          border: 1px solid $themeColor;
+        }
+      }
+      .edit-icon {
+        margin: 2px 10px;
+        padding: 4px;
+        border-radius: 100%;
+        border: 1px solid $themeColor;
+      }
+      .dropDown-icon {
+        cursor: pointer;
+      }
+    }
+  }
+  .block {
+    top: 45px;
+    left: 0;
+    right: 0;
+    border-radius: 4px;
+    border: 1px solid $themeColor;
+    background: #ffffff;
+    box-shadow: 0 4px 8px rgb(0 0 0 / 10%);
+    visibility: hidden;
+    opacity: 0;
+    z-index: 2;
+    width: 100%;
+    .manue {
+      width: 100%;
+      // height: 150px;
+      overflow-y: auto;
+      padding: 0px 0px;
+      &::-webkit-scrollbar {
+        width: 4px;
+      }
+      .slt {
+        width: 100%;
+        padding: 8px 16px;
+        @include anim;
+        &.active {
+          background-color: $themeColor;
+          color: #000000;
+          .unit-name {
+            .unit-eng {
+              color: #000000;
+            }
+          }
+        }
+        .unit-name {
+          .unit-eng {
+            color: #000000;
+          }
+        }
+        .ico {
+          justify-content: flex-start;
+          margin-right: 8px;
+          width: 25px;
+          height: 25px;
+        }
+        .lbl {
+          flex: 1;
+          margin-left: 5px;
+          justify-content: flex-start;
+        }
+        &:hover {
+          background-color: $themeColor;
+          cursor: pointer;
+          .ico {
+            color: $themeColor;
+          }
+          .lbl {
+            color: #ffffff;
+          }
+          .unit-name {
+            .unit-eng {
+              color: #ffffff;
+            }
+          }
+        }
+      }
+    }
+    &.show {
+      display: flex;
+      visibility: visible;
+      opacity: 1;
+      @include dropDownAnim;
+    }
+  }
+}
+
+// Loader
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.loader-cmp {
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(2px);
+  background: rgba(255, 255, 255, 0.65);
+  z-index: 9999999999;
+  overflow: hidden;
+  position: absolute;
+  inset: 0;
+  .lds-dual-ring {
+    display: inline-block !important;
+    width: 80px;
+    height: 80px;
+    &:after {
+      content: " ";
+      display: block !important;
+      width: 64px;
+      height: 64px;
+      margin: 8px;
+      border-radius: 50%;
+      border: 6px solid $themeColor;
+      border-color: $themeColor transparent $themeColor transparent;
+      animation: lds-dual-ring 1.2s linear infinite;
+    }
+  }
+}
+
+// Dashboard
+.dashboard-page {
+  height: 100%;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  min-height: 730px;
+  background: #eeeeee;
+  @include anim;
+  &.full-open {
+    margin-left: 0;
+  }
+  @media screen and (max-width: 770px) {
+    &.full-open {
+      margin-left: 0;
+    }
+    & {
+      display: block !important;
+      z-index: 9999999999999;
+    }
+  }
+}
+
+// Add a media query to hide the sidebar on screens <= 770px
+@include media("<=770px") {
+  .dashboard-page.full-open {
+    margin-left: 0;
+  }
+}
+
+.ham {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 999999999999999;
+  background-color: $themeColor;
+  padding: 0;
+  border-radius: 10%;
+}
+
+@media (min-width: 770px) {
+  .ham {
+    display: none;
+  }
+}
+.ham img {
+  width: 45px;
+  height: auto;
+}
+.close {
+  position: fixed;
+  bottom: 15%;
+  left: 22%;
+  z-index: 99999999;
+}
+.close img {
+  width: 45px;
+  height: auto;
+  animation: bounce 1s infinite alternate;
+}
+
+.back-to-top {
+  color: white;
+  padding: 0 8px 0 8px;
+  position: fixed;
+  bottom: 5%;
+  right: 10%;
+  z-index: 99999999;
+  animation: bounce 1s infinite alternate;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
+.custom-modal {
+  background-color: #0a0909;
+  box-shadow: 2px 2px 5px rgba(23, 228, 115, 0.877);
+}
+
+.wallet-btn {
+  background-color: #00bd8a;
+}
+
+/*connect wallet*/
+.wallet {
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(20, 20, 20, 0.877);
+  background-color: #00bd8a;
+  margin-top: 15px;
+}
+
+.wallet-content {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  padding: 10px;
+}
+
+.modal-title {
+  font-size: larger;
+}
+
+.wallet-img {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.wallet-text {
+  font-size: 24px;
+  color: white;
+}
+
+.address-input {
+  margin-bottom: 20px; /* Add spacing between address inputs */
+}
+
+.input-label {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+}
+
+.address-input-field {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.address-input-button {
+  background-color: #00bd8a;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.address-input-button:hover {
+  background-color: rgb(27, 25, 25);
+}
+
+.btn-1 {
+  border: 2px #00bd8a solid;
+  font-size: 20px;
+}
+
+.collection-page .wrap .collection-item {
+  padding: 0;
+  border-radius: 10px;
+  border: 1px solid rgba(247, 247, 247, 0.5);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.collection-page .wrap .collection-item:hover {
+  box-shadow: 0 10px 20px rgba(48, 228, 135, 0.6);
+  transform: scale(1.03);
+}
+
+.collection-page .wrap .staking-grid .collection-item.desc p {
+  font-family: "VT323";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 38px;
+  line-height: 34px;
+  letter-spacing: 0.05em;
+  color: #f7f7f7;
+}
+.collection-page .wrap .collection-item .c-img {
+  height: 100%;
+  width: 100%;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.collection-page .wrap .collection-item .btn-stack {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  color: #151515;
+  width: 100%;
+}
+
+.glitter {
+  font-size: 24px;
+  position: relative;
+  transition: color 0.3s; /* Smooth color transition */
+}
+
+.glitter:hover {
+  box-shadow: 0 10px 20px rgba(29, 143, 87, 0.6);
+  transform: scale(1.03);
+}
+
+.glitter::before {
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.4) 50%, transparent 60%);
+  background-size: 200% 200%;
+  animation: glitter 2s linear infinite;
+  opacity: 0; /* Hidden by default */
+}
+
+.glitter::before {
+  opacity: 1; /* Show glitter on hover */
+}
+
+@keyframes glitter {
+  0% {
+      background-position: 100% 0;
+  }
+  100% {
+      background-position: -100% 0;
+  }
+}
+
+.nft-card:hover {
+  background: #2B2B2B;
+   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  animation-name: x;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease;
+  transition: all;
+}
+
+@keyframes x {
+  0% {transform: rotateY(0deg) skewX(0deg);}
+  25% {transform: rotateY(-30deg) skewX(-4deg);}
+  50% {transform: rotateY(0deg) skewX(0deg);}
+  75% {transform: rotateY(30deg) skewX(4deg);}
+  100% {transform: rotateY(0deg) skewX(0deg);}
+}
+
+.c-btn {
+  background-color: #00bd8a;
+  border-radius: 10px;
+}
+
+.c-btn:hover {
+  background-color: #000;
+  border: 1px #00bd8a solid;
+  color: #00bd8a;
+}
+
+.fixed-top {
+  position: fixed;
+  width: 50%;
+  top: 10px;
+  right: 0;
+  left: 50%;
+  z-index: 9999; /* Adjust the z-index as needed */
+}
+
+.side-block {
+  position: fixed !important;
+}
+
+/* Customize the scrollbar */
+.scrollable-div {
+  height: 100%;
+  overflow-y: scroll;
+}
+
+/* Style the track (background) of the scrollbar */
+.scrollable-div::-webkit-scrollbar {
+  width: 5px; 
+}
+
+/* Style the thumb (the draggable part of the scrollbar) */
+.scrollable-div::-webkit-scrollbar-thumb {
+  background-color: #00bd8a; 
+}
+
+/* Style the track (background) when the scrollbar is being hovered over */
+.scrollable-div::-webkit-scrollbar-thumb:hover {
+  background-color: #00bd8a; 
+}
+
+/* Style the track (background) of the scrollbar */
+.scrollable-div::-webkit-scrollbar-track {
+  background-color: #f1f1f1; 
+}
+
+.nav-wrapper {
+  width: 100%;
+  justify-content: center;
+}
+
+.nav-item-wrapper {
+  align-items: center;
+}
+
+.nav-wrapper:hover .nav-item-wrapper {
+  display: flex;
+  background-image: url("../../public/images/f1.gif");
+  background-repeat: no-repeat;
+  background-size: cover; 
+  background-position: center;
+  height: 80px;
+  width: 80px;
+  justify-content: center;
+  animation: moveUpDown 3s linear infinite;
+}
+
+.nav-icon  {
+  display: none;
+  width: 50px;
+  height: 50px;
+}
+.nav-wrapper:hover .nav-icon {
+  display: block;
+  animation: moveUpDown 1s linear infinite;
+}
+
+.animate-up-down {
+  animation: moveUpDown 2s linear infinite; /* Adjust the duration and timing function as needed */
+}
+
+@keyframes moveUpDown {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px); /* Adjust the distance the icon moves up and down */
+  }
+}
+
+.swing-axe {
+  animation: swingAxe 2s ease-in-out infinite; /* Adjust the duration and timing function as needed */
+  transform-origin: right center;
+}
+
+@keyframes swingAxe {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-40deg); 
+  }
+  50% {
+    transform: rotate(5deg); 
+  }
+  75% {
+    transform: rotate(-20deg); 
+  }
+}
+
+
+.wand {
+  animation: rotateWand 6s linear infinite;
+  transform-style: preserve-3d;
+}
+
+@keyframes rotateWand {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+  }
+}
+
+.fire-animate {
+  display: none;
+}
+
+.wallet:hover{
+  animation: moveUpDown 3s linear infinite;
+}
+
+.wallet:hover .fire-animate{
+  display: block;
+  animation: moveUpDown 2s linear infinite;
+}
+
+.move-right-left {
+  width: 50px;
+  height: 50px;
+  margin-right: 80px;
+  animation: moveRightLeft 4s linear infinite;
+}
+
+@keyframes moveRightLeft {
+  0% {
+      transform: translateX(100%);
+  }
+  50% {
+      transform: translateX(0);
+  }
+  100% {
+      transform: translateX(100%);
+  }
+}
+
+/* CSS */
+.button-85 {
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-85:hover:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-button-85 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowing-button-85 {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.button-85:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+/* CSS */
+.button-92 {
+  --c: #fff;
+  /* text color */
+  background: linear-gradient(90deg, #0000 33%, #fff5, #0000 67%) var(--_p,100%)/300% no-repeat,
+  #00bd8a;
+  /* background color */
+  color: #0000;
+  border: none;
+  transform: perspective(500px) rotateY(calc(20deg*var(--_i,-1)));
+  text-shadow: calc(var(--_i,-1)* 0.08em) -.01em 0   var(--c),
+    calc(var(--_i,-1)*-0.08em)  .01em 2px #0004;
+  outline-offset: .1em;
+  transition: 0.3s;
+}
+
+.button-92:hover,
+.button-92:focus-visible {
+  --_p: 0%;
+  --_i: 1;
+}
+
+.button-92:active {
+  text-shadow: none;
+  color: var(--c);
+  box-shadow: inset 0 0 9e9q #0005;
+  transition: 0s;
+}
+
+.button-92 {
+  font-weight: bold;
+  font-size: 2rem;
+  margin: 0;
+  cursor: pointer;
+  padding: .1em .3em;
+}
+
+.animated-heading {
+  animation: slideFromLeft 2s ease-in-out forwards;
+  opacity: 0;
+}
+
+@keyframes slideFromLeft {
+  0% {
+      transform: translateX(-100%);
+      opacity: 0;
+  }
+  100% {
+      transform: translateX(0);
+      opacity: 1;
+  }
+}
+
+.modal {
+  z-index: 2;
+}
+
+.desc .collec-desc{
+  font-size: 14px !important;
+  line-height: 1 !important; 
+  text-align: justify;
+}
+
+.b-nft {
+  width: fit-content;
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.loading-spinner {
+  border: 8px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top: 8px solid #3498db;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+.loading-text {
+  margin-top: 16px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #3498db;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

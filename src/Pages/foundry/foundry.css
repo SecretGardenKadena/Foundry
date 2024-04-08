@@ -1,0 +1,48 @@
+.fdry-wrap {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.font-label {
+    font-family: Luckiest Guy;
+}
+
+.fdry-label {
+    color: #F7F7F7;
+    text-align: center;
+    font-family: Luckiest Guy;
+    font-size: 3rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 6.4px;
+}
+
+.fdry-disconn-hero {
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 10px;
+    padding: 120px 40px;
+    background: url(/public/images/armory-page/hero.png);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.fdry-disconn-hero .title,
+.fdry-disconn-hero .info {
+    align-self: stretch;
+    color: #F7F7F7;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.fdry-disconn-hero .title {
+    font-size: 42px;
+    letter-spacing: 2.4px;
+}
+
+.fdry-disconn-hero .info {
+    font-size: 24px;
+    letter-spacing: 1.8px;
+}

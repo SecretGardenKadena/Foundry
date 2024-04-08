@@ -1,0 +1,128 @@
+.buy-nft-page {
+  padding: 40px 0;
+  width: 100%;
+  height: 100%;
+  min-height: 730px;
+}
+.buy-nft-page .wrap {
+  gap: 20px;
+  margin-top: 40px;
+}
+.buy-nft-page .wrap .left-side {
+  flex: 0.8;
+  height: auto;
+}
+.buy-nft-page .wrap .left-side .bg {
+  height: 300px;
+  width: 100%;
+  background-image: url("../../../public/images/bg2.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.buy-nft-page .wrap .left-side .info {
+  padding: 20px 50px;
+}
+.buy-nft-page .wrap .left-side .info .tag {
+  font-family: "Luckiest Guy";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 54px;
+  line-height: 64px;
+  text-align: center;
+  letter-spacing: 0.1em;
+  color: #f7f7f7;
+}
+.buy-nft-page .wrap .left-side .info .desc {
+  font-family: "VT323";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  letter-spacing: 0.05em;
+  color: #f7f7f7;
+}
+@media screen and (min-width: 1200px) {
+  .buy-nft-page .wrap .left-side .info .tag {
+    font-weight: 400;
+    font-size: 54px;
+    line-height: 64px;
+  }
+}
+@media screen and (max-width: 1199px) and (min-width: 768px) {
+  .buy-nft-page .wrap .left-side .info .tag {
+    font-weight: 300;
+    font-size: 50px;
+    line-height: 60px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .buy-nft-page .wrap .left-side .info .tag {
+    font-weight: 200;
+    font-size: 46px;
+    line-height: 56px;
+  }
+}
+.buy-nft-page .wrap .right-side {
+  flex: 1;
+  height: auto;
+}
+.buy-nft-page .wrap .right-side .nft-grid {
+  grid-gap: 20px;
+  display: grid;
+  width: 100%;
+  margin-top: 30px;
+  grid-template-columns: repeat(2, 1fr);
+}
+.buy-nft-page .wrap .right-side .nft-grid .grid-item {
+  width: 100%;
+  height: 630px;
+  border-radius: 8px;
+}
+.buy-nft-page .wrap .right-side .nft-grid .grid-item .img {
+  width: 100%;
+  height: 440px;
+}
+.buy-nft-page .wrap .right-side .nft-grid .grid-item .nft-info {
+  margin-top: 8px;
+}
+.buy-nft-page .wrap .right-side .nft-grid .grid-item .nft-info .tag {
+  font-family: "Luckiest Guy";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 64px;
+  text-align: center;
+  letter-spacing: 0.1em;
+  color: #f7f7f7;
+}
+.buy-nft-page .wrap .right-side .nft-grid .grid-item .nft-info .desc {
+  font-family: "VT323";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 26px;
+  letter-spacing: 0.05em;
+  color: #f7f7f7;
+}
+.buy-nft-page .wrap .right-side .nft-grid .grid-item .nft-info .buy-btn {
+  margin-top: 12px;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 21px;
+  color: #151515;
+}
+@media screen and (max-width: 1199px) and (min-width: 768px) {
+  .buy-nft-page .wrap .right-side .nft-grid .grid-item .nft-info .buy-btn {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 20px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .buy-nft-page .wrap .right-side .nft-grid .grid-item .nft-info .buy-btn {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 19px;
+  }
+}/*# sourceMappingURL=buynft-style.css.map */

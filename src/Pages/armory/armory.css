@@ -1,0 +1,84 @@
+.armory-wrap {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.armory-label {
+    color: #F7F7F7;
+    text-align: center;
+    font-family: Luckiest Guy;
+    font-size: 3rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 6.4px;
+}
+
+.armory-disconn-hero {
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 10px;
+    padding: 120px 40px;
+    background: url(/public/images/armory-page/hero.png);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.armory-disconn-hero .title,
+.armory-disconn-hero .info {
+    align-self: stretch;
+    color: #F7F7F7;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.armory-disconn-hero .title {
+    font-size: 42px;
+    letter-spacing: 2.4px;
+}
+
+.armory-disconn-hero .info {
+    font-size: 24px;
+    letter-spacing: 1.8px;
+}
+
+.armory-conn-sublabel {
+    color: #F7F7F7;
+}
+
+/* armory category */
+.armory-category-label {
+    display: flex;
+    /* width: 120px; */
+    height: 120px;
+    padding: 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border: 3px solid #00BD8A;
+    background: #F7F7F7;
+    box-sizing: border-box;
+}
+
+.category-card {
+    display: flex;
+    /* width: 120px; */
+    height: 120px;
+    padding: 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    border-radius: 10px;
+    background: #374B42;
+    font-size: 16px;
+    color: #F7F7F7;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.category-card img {
+    height: 70px;
+}
